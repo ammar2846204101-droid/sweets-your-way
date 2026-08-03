@@ -1,4 +1,4 @@
-           <!DOCTYPE html>
+                 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -21,7 +21,24 @@
     .intro {
       color: #666;
       font-size: 1.1rem;
-      margin-bottom: 35px;
+      margin-bottom: 25px;
+    }
+    .video-container {
+      max-width: 400px;
+      margin: 0 auto 25px auto;
+    }
+    video {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    #main-content {
+      display: none; 
+      animation: fadeIn 0.8s ease-in-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .categories-grid {
       display: flex;
@@ -40,14 +57,9 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       text-decoration: none;
       color: inherit;
-      transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    .category-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(214, 56, 82, 0.15);
     }
     .emoji {
       font-size: 3.5rem;
@@ -72,35 +84,14 @@
 <body>
 
   <h1>🍰 حلويات على كيفك</h1>
-  <p class="intro">أهلاً بكم في متجرنا! اختر القسم لتصفح المنتجات</p>
+  <p class="intro">أهلاً بكم في متجرنا!</p>
 
-  <h2>أقسام المتجر</h2>
-
-  <div class="categories-grid">
-    
-    <!-- قسم الكعكات -->
-    <a href="cakes.html" class="category-card">
-      <div class="emoji">🎂</div>
-      <h3>كعكات</h3>
-      <span class="btn-view">عرض المنتجات 👈</span>
-    </a>
-
-    <!-- قسم الكب كيك -->
-    <a href="cupcakes.html" class="category-card">
-      <div class="emoji">🧁</div>
-      <h3>كب كيك</h3>
-      <span class="btn-view">عرض المنتجات 👈</span>
-    </a>
-
-    <!-- قسم الكوكيز -->
-    <a href="cookies.html" class="category-card">
-      <div class="emoji">🍪</div>
-      <h3>كوكيز</h3>
-      <span class="btn-view">عرض المنتجات 👈</span>
-    </a>
-
+  <div class="video-container">
+    <video id="promo-video" controls autoplay muted playsinline>
+      <source src="gemini_generated_video_ddac823.mp4" type="video/mp4">
+      متصفحك لا يدعم تشغيل الفيديو.
+    </video>
   </div>
 
-</body>
-</html>
- 
+  <div id="main-content">
+    <h2>
