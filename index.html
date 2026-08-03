@@ -1,4 +1,4 @@
-                 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -18,7 +18,7 @@
       position: relative;
     }
     
-    /* حاوية تساقط الحلويات */
+    /* خلفية تساقط الحلويات */
     .sweets-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none; z-index: 0; overflow: hidden;
@@ -32,29 +32,26 @@
       100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
     }
 
-    /* محتوى الصفحة الرئيسي */
     .content { position: relative; z-index: 1; }
     .header { margin-top: 20px; margin-bottom: 25px; }
     h1 { color: #d63852; font-size: 2.3rem; margin: 0 0 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     .intro { color: #666; font-size: 1.1rem; margin: 0; }
     
-    /* شبكة الأقسام */
     .section-title {
-      color: #888; font-size: 1rem; margin: 25px 0 15px 0;
+      color: #888; font-size: 1rem; margin: 25px 0 20px 0;
       display: flex; align-items: center; justify-content: center; gap: 10px;
     }
     .section-title::before, .section-title::after { content: ""; height: 1px; width: 40px; background-color: #ccc; }
     
     .categories-grid {
       display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 500px; margin: 0 auto;
-      padding-top: 20px; /* مسافة لبروز النوتيلا */
     }
 
-    /* كروت الأقسام البارزة (المجسمة) */
+    /* 🔥 كروت بارزة جداً وتأثير 3D قوي 🔥 */
     .category-card {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 22px;
-      padding: 35px 15px 20px 15px; /* حشو علوي أكبر للنوتيلا */
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 30px 15px 20px 15px;
       width: 45%;
       min-width: 140px;
       text-decoration: none;
@@ -63,68 +60,70 @@
       flex-direction: column;
       align-items: center;
       position: relative;
+      overflow: hidden; /* عشان يحكم الصوص جوه الكارت من فوق */
       
-      /* سر البروز: حدود بيضاء وظل ملموس قوي */
-      border: 2px solid #fff0f3;
-      box-shadow: 0 10px 20px rgba(214, 56, 82, 0.15), 
-                  0 4px 6px rgba(0, 0, 0, 0.05);
+      /* سر البروز الفائق: ظلال متدرجة مجسمة وتحديد خفيف */
+      border: 2px solid #ffffff;
+      box-shadow: 
+        0 15px 30px rgba(214, 56, 82, 0.18),
+        0 5px 15px rgba(0, 0, 0, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.9);
       
-      /* حركة التفاعل عند اللمس */
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transform: translateY(-4px); /* رفع الكارت لبرة */
+      transition: all 0.2s ease;
       z-index: 1;
     }
 
-    /* تأثير علبة النوتيلا فوق كل قسم (باستثناء قسم العروض) */
+    /* 🍫 تأثير صوص الشوكولاتة السايح بجد بقطرات انسيابية وتماوج ناعم 🍫 */
     .category-card:not(.offers-card)::before {
-      content: "🍫"; /* إيموجي علبة النوتيلا */
+      content: "";
       position: absolute;
-      top: -25px; /* بروز فوق الكارت */
-      font-size: 2.8rem;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+      top: 0; left: 0; right: 0;
+      height: 35px;
+      background: #4a2411; /* لون الشوكولاتة الغنية */
+      
+      /* رسم قطرات انسيابية وسايحة حقيقية */
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      clip-path: polygon(
+        0% 0%, 100% 0%, 100% 65%, 
+        85% 95%, 70% 60%, 
+        50% 100%, 30% 55%, 
+        15% 90%, 0% 60%
+      );
+      
+      /* نقط فارمسيه ملونة سايحة جوه الصوص */
+      background-image: 
+        radial-gradient(#FFD700 40%, transparent 45%),
+        radial-gradient(#FF5370 40%, transparent 45%),
+        radial-gradient(#00E5FF 40%, transparent 45%),
+        radial-gradient(#7C4DFF 40%, transparent 45%);
+      background-size: 7px 7px, 9px 9px, 8px 8px, 6px 6px;
+      background-position: 8px 6px, 25px 12px, 45px 8px, 65px 14px;
+      
+      filter: drop-shadow(0 3px 2px rgba(0,0,0,0.3)); /* ظل للصوص يخليه بارز فوق الكارت */
       z-index: 2;
     }
 
-    /* تأثير صوص الشيكولاتة السايح والفارمسيه */
-    .category-card:not(.offers-card)::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 10px; right: 10px;
-      height: 30px; /* طول الصوص */
-      background-color: #613611; /* لون الشيكولاتة */
-      border-radius: 0 0 15px 15px; /* نهاية دائرية للصوص */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      z-index: 0;
-      
-      /* الفارمسيه (نقاط ملونة) باستخدام linear-gradient */
-      background-image: 
-        radial-gradient(#FFD700 15%, transparent 20%), /* أصفر */
-        radial-gradient(#FF69B4 15%, transparent 20%), /* وردي */
-        radial-gradient(#00BFFF 15%, transparent 20%), /* أزرق */
-        radial-gradient(#32CD32 15%, transparent 20%); /* أخضر */
-      background-size: 6px 6px, 8px 8px, 10px 10px, 7px 7px;
-      background-position: 0 0, 4px 4px, 8px 2px, 2px 6px;
+    /* ضغطة زر ممتازة عند اللمس */
+    .category-card:active {
+      transform: translateY(2px) scale(0.96);
+      box-shadow: 0 5px 12px rgba(214, 56, 82, 0.15);
     }
 
-    /* تنسيق خاص لقسم العروض (بدون نوتيلا) */
+    /* قسم العروض الشيك مميز بدون صوص */
     .offers-card {
       border: 3px solid #ff5370 !important;
-      background: rgba(255, 245, 247, 0.98) !important;
+      background: #fff8f9 !important;
       padding-top: 20px !important;
     }
 
-    /* لما تدوس على الكارت بصباعك يتضغط لجوة (تأثير الزرار الحقيقي) */
-    .category-card:active {
-      transform: translateY(4px) scale(0.97);
-      box-shadow: 0 4px 10px rgba(214, 56, 82, 0.1);
-    }
-
-    /* إيموجي القسم بحجم أوضح وبروز */
     .emoji { 
       font-size: 3.2rem; 
+      margin-top: 10px;
       margin-bottom: 8px; 
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-      position: relative; /* عشان تطلع فوق الصوص */
-      z-index: 2;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+      position: relative;
+      z-index: 3;
     }
 
     .category-card h3 { 
@@ -132,10 +131,10 @@
       color: #222; 
       font-size: 1.25rem; 
       font-weight: 800;
-      position: relative; z-index: 2;
+      position: relative; 
+      z-index: 3;
     }
 
-    /* زرار تصفح بارز ونشط */
     .btn-view {
       background: linear-gradient(135deg, #d63852 0%, #ff5370 100%);
       color: white;
@@ -144,17 +143,17 @@
       font-size: 0.85rem;
       font-weight: bold;
       margin-top: 10px;
-      box-shadow: 0 4px 10px rgba(255, 83, 112, 0.3);
-      position: relative; z-index: 2;
+      box-shadow: 0 4px 12px rgba(255, 83, 112, 0.35);
+      position: relative; 
+      z-index: 3;
     }
 
-    /* زرار الواتساب */
     .whatsapp-btn {
       display: flex; align-items: center; justify-content: center; gap: 10px;
       background: #25D366; color: white; text-decoration: none;
       font-size: 1.1rem; font-weight: bold; padding: 14px 25px;
       border-radius: 30px; max-width: 300px; margin: 35px auto 20px auto;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35); transition: transform 0.2s;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); transition: transform 0.2s;
     }
     .whatsapp-btn:active { transform: scale(0.97); }
   </style>
@@ -173,7 +172,7 @@
     
     <div class="categories-grid">
       <a href="offers.html" class="category-card offers-card">
-        <div class="emoji">🎁</div>
+        <div class="emoji" style="margin-top:0;">🎁</div>
         <h3>العروض والتوفير</h3>
         <span class="btn-view" style="background: #222;">شاهد العروض 🔥</span>
       </a>
@@ -201,27 +200,21 @@
   </div>
 
   <script>
-    // كود توليد تساقط الحلويات بشكل عشوائي وممتع
     const sweetsList = ['🍰', '🧁', '🍪', '🍩', '🍫', '🍓', '🍬', '✨'];
     const container = document.getElementById('sweets');
-    const sweetsCount = 18; // عدد قطع الحلويات المتساقطة
+    const sweetsCount = 18;
 
     for (let i = 0; i < sweetsCount; i++) {
       const sweet = document.createElement('div');
       sweet.classList.add('sweet');
       sweet.innerText = sweetsList[Math.floor(Math.random() * sweetsList.length)];
-      
-      // أماكن وسرعات عشوائية
       sweet.style.left = Math.random() * 100 + 'vw';
-      sweet.style.animationDuration = (Math.random() * 4 + 4) + 's'; // سرعة الهبوط
-      sweet.style.animationDelay = (Math.random() * 5) + 's'; // تأخير البداية
-      sweet.style.fontSize = (Math.random() * 1 + 1.2) + 'rem'; // أحجام مختلفة
-
+      sweet.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      sweet.style.animationDelay = (Math.random() * 5) + 's';
+      sweet.style.fontSize = (Math.random() * 1 + 1.2) + 'rem';
       container.appendChild(sweet);
     }
   </script>
 
 </body>
 </html>
-        
-      
