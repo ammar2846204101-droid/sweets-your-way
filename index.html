@@ -5,127 +5,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>حلويات على كيفك</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fff5f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fff5f5 0%, #ffe3e8 100%);
       color: #333;
       margin: 0;
-      padding: 20px;
+      padding: 20px 15px;
       text-align: center;
+      min-height: 100vh;
+    }
+    .header {
+      margin-top: 10px;
+      margin-bottom: 20px;
     }
     h1 {
       color: #d63852;
-      margin-top: 15px;
       font-size: 2.2rem;
+      margin: 0 0 5px 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     }
     .intro {
       color: #666;
       font-size: 1.1rem;
-      margin-bottom: 25px;
+      margin: 0;
     }
+    
+    /* مشغل الفيديو الاحترافي */
     .video-container {
-      max-width: 400px;
-      margin: 0 auto 25px auto;
+      max-width: 420px;
+      margin: 0 auto 30px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(214, 56, 82, 0.15);
+      background: #000;
+      border: 3px solid #ffffff;
     }
     video {
       width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      height: auto;
+      display: block;
     }
-    #main-content {
-      display: none; 
-      animation: fadeIn 0.8s ease-in-out forwards;
+
+    /* شبكة الأقسام */
+    .section-title {
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .section-title::before, .section-title::after {
+      content: "";
+      height: 1px;
+      width: 40px;
+      background-color: #ccc;
     }
     .categories-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 15px;
       justify-content: center;
-      max-width: 800px;
+      max-width: 500px;
       margin: 0 auto;
     }
     .category-card {
       background: white;
-      border: 2px solid #ffccd5;
-      border-radius: 20px;
-      padding: 25px 20px;
-      width: 160px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-radius: 18px;
+      padding: 20px 15px;
+      width: 45%;
+      min-width: 140px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #ffedf0;
+    }
+    .category-card:active {
+      transform: scale(0.96);
     }
     .emoji {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      margin-bottom: 8px;
     }
     .category-card h3 {
-      margin: 10px 0 5px 0;
+      margin: 5px 0;
       color: #222;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
     .btn-view {
-      background-color: #d63852;
+      background: linear-gradient(45deg, #d63852, #ff5370);
       color: white;
-      padding: 8px 16px;
+      padding: 6px 14px;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 8px;
+      box-shadow: 0 3px 8px rgba(214, 56, 82, 0.3);
     }
   </style>
 </head>
 <body>
 
-  <h1>🍰 حلويات على كيفك</h1>
-  <p class="intro">أهلاً بكم في متجرنا!</p>
+  <div class="header">
+    <h1>🍰 حلويات على كيفك</h1>
+    <p class="intro">أهلاً بكم في متجرنا!</p>
+  </div>
 
   <div class="video-container">
-    <video id="promo-video" controls autoplay muted playsinline>
+    <video autoplay muted loop playsinline controls poster="https://via.placeholder.com/400x225/ffe3e8/d63852?text=🍰+حلويات+على+كيفك">
       <source src="intro.mp4" type="video/mp4">
+      <source src="./intro.mp4" type="video/mp4">
       متصفحك لا يدعم تشغيل الفيديو.
     </video>
   </div>
 
-  <div id="main-content">
-    <h2>أقسام المتجر</h2>
-    <div class="categories-grid">
-      
-      <a href="cakes.html" class="category-card">
-        <div class="emoji">🎂</div>
-        <h3>كعكات</h3>
-        <span class="btn-view">عرض المنتجات 👈</span>
-      </a>
+  <div class="section-title">اختر القسم</div>
+  
+  <div class="categories-grid">
+    
+    <a href="cakes.html" class="category-card">
+      <div class="emoji">🎂</div>
+      <h3>كعكات</h3>
+      <span class="btn-view">تصفح 👈</span>
+    </a>
 
-      <a href="cupcakes.html" class="category-card">
-        <div class="emoji">🧁</div>
-        <h3>كب كيك</h3>
-        <span class="btn-view">عرض المنتجات 👈</span>
-      </a>
+    <a href="cupcakes.html" class="category-card">
+      <div class="emoji">🧁</div>
+      <h3>كب كيك</h3>
+      <span class="btn-view">تصفح 👈</span>
+    </a>
 
-      <a href="cookies.html" class="category-card">
-        <div class="emoji">🍪</div>
-        <h3>كوكيز</h3>
-        <span class="btn-view">عرض المنتجات 👈</span>
-      </a>
+    <a href="cookies.html" class="category-card">
+      <div class="emoji">🍪</div>
+      <h3>كوكيز</h3>
+      <span class="btn-view">تصفح 👈</span>
+    </a>
 
-    </div>
   </div>
-
-  <script>
-    const video = document.getElementById('promo-video');
-    const content = document.getElementById('main-content');
-
-    video.onended = function() {
-      content.style.display = 'block';
-    };
-  </script>
 
 </body>
 </html>
