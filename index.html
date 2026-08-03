@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>حلويات على كيفك</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #fff5f5 0%, #ffe3e8 100%);
@@ -17,36 +15,30 @@
       text-align: center;
       min-height: 100vh;
     }
-    .header {
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      color: #d63852;
-      font-size: 2.2rem;
-      margin: 0 0 5px 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
-    }
-    .intro {
-      color: #666;
-      font-size: 1.1rem;
-      margin: 0;
-    }
+    .header { margin-top: 10px; margin-bottom: 20px; }
+    h1 { color: #d63852; font-size: 2.2rem; margin: 0 0 5px 0; }
+    .intro { color: #666; font-size: 1.1rem; margin: 0; }
     
-    /* مشغل الفيديو الاحترافي */
+    /* مشغل فيديو يوتيوب الاحترافي */
     .video-container {
-      max-width: 420px;
+      position: relative;
+      width: 100%;
+      max-width: 400px;
       margin: 0 auto 30px auto;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(214, 56, 82, 0.15);
-      background: #000;
+      box-shadow: 0 10px 25px rgba(214, 56, 82, 0.2);
       border: 3px solid #ffffff;
+      padding-top: 177.77%; /* نسبة 9:16 للفيديوهات الطولية */
+      background: #000;
     }
-    video {
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
+      border: 0;
     }
 
     /* شبكة الأقسام */
@@ -60,55 +52,21 @@
       gap: 10px;
     }
     .section-title::before, .section-title::after {
-      content: "";
-      height: 1px;
-      width: 40px;
-      background-color: #ccc;
+      content: ""; height: 1px; width: 40px; background-color: #ccc;
     }
     .categories-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-      max-width: 500px;
-      margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; max-width: 500px; margin: 0 auto;
     }
     .category-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px 15px;
-      width: 45%;
-      min-width: 140px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-      border: 1px solid #ffedf0;
+      background: white; border-radius: 18px; padding: 20px 15px; width: 45%; min-width: 140px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05); text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; align-items: center; border: 1px solid #ffedf0;
     }
-    .category-card:active {
-      transform: scale(0.96);
-    }
-    .emoji {
-      font-size: 3rem;
-      margin-bottom: 8px;
-    }
-    .category-card h3 {
-      margin: 5px 0;
-      color: #222;
-      font-size: 1.2rem;
-    }
+    .emoji { font-size: 3rem; margin-bottom: 8px; }
+    .category-card h3 { margin: 5px 0; color: #222; font-size: 1.2rem; }
     .btn-view {
-      background: linear-gradient(45deg, #d63852, #ff5370);
-      color: white;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: bold;
-      margin-top: 8px;
-      box-shadow: 0 3px 8px rgba(214, 56, 82, 0.3);
+      background: linear-gradient(45deg, #d63852, #ff5370); color: white;
+      padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; margin-top: 8px;
     }
   </style>
 </head>
@@ -120,36 +78,34 @@
   </div>
 
   <div class="video-container">
-    <video autoplay muted loop playsinline controls poster="https://via.placeholder.com/400x225/ffe3e8/d63852?text=🍰+حلويات+على+كيفك">
-      <source src="intro.mp4" type="video/mp4">
-      <source src="./intro.mp4" type="video/mp4">
-      متصفحك لا يدعم تشغيل الفيديو.
-    </video>
+    <iframe 
+      src="https://www.youtube.com/embed/5YLTJtfcyzg?autoplay=1&mute=1&loop=1&playlist=5YLTJtfcyzg&playsinline=1&controls=0&rel=0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
   </div>
 
   <div class="section-title">اختر القسم</div>
   
   <div class="categories-grid">
-    
     <a href="cakes.html" class="category-card">
       <div class="emoji">🎂</div>
       <h3>كعكات</h3>
       <span class="btn-view">تصفح 👈</span>
     </a>
-
     <a href="cupcakes.html" class="category-card">
       <div class="emoji">🧁</div>
       <h3>كب كيك</h3>
       <span class="btn-view">تصفح 👈</span>
     </a>
-
     <a href="cookies.html" class="category-card">
       <div class="emoji">🍪</div>
       <h3>كوكيز</h3>
       <span class="btn-view">تصفح 👈</span>
     </a>
-
   </div>
 
 </body>
 </html>
+
+    
