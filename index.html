@@ -18,13 +18,13 @@
       position: relative;
     }
     
-    /* خلفية تساقط الحلويات - مكثفة */
+    /* خلفية تساقط الحلويات - مكثفة جداً */
     .sweets-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none; z-index: 0; overflow: hidden;
     }
     .sweet {
-      position: absolute; top: -50px; font-size: 2.1rem;
+      position: absolute; top: -50px; font-size: 2rem;
       user-select: none; animation: fall linear infinite; opacity: 0.9;
     }
     @keyframes fall {
@@ -32,28 +32,28 @@
       100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
     }
 
+    /* محتوى الصفحة الرئيسي */
     .content { position: relative; z-index: 1; }
     .header { margin-top: 20px; margin-bottom: 25px; }
     h1 { color: #d63852; font-size: 2.3rem; margin: 0 0 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     .intro { color: #666; font-size: 1.1rem; margin: 0; }
     
     .section-title {
-      color: #888; font-size: 1rem; margin: 25px 0 35px 0;
+      color: #888; font-size: 1rem; margin: 25px 0 20px 0;
       display: flex; align-items: center; justify-content: center; gap: 10px;
-      position: relative;
     }
     .section-title::before, .section-title::after { content: ""; height: 1px; width: 40px; background-color: #ccc; }
     
+    /* شبكة الأقسام */
     .categories-grid {
       display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 500px; margin: 0 auto;
-      position: relative;
     }
 
-    /* 🔥 كروت بارزة جداً ومجسمة 🔥 */
+    /* 🔥 هذا هو سر البروز! الكروت المجسمة والمرفوعة 🔥 */
     .category-card {
       background: #ffffff;
-      border-radius: 24px;
-      padding: 30px 15px 20px 15px;
+      border-radius: 22px;
+      padding: 20px 15px;
       width: 45%;
       min-width: 140px;
       text-decoration: none;
@@ -61,103 +61,63 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      position: relative;
-      overflow: hidden;
       
+      /* सर البروز: ظل متدرج عميق وملموس يرفع الكارت للأعلى */
       border: 2px solid #ffffff;
       box-shadow: 
-        0 15px 35px rgba(214, 56, 82, 0.2),
-        0 5px 15px rgba(0, 0, 0, 0.1);
+        0 15px 30px rgba(214, 56, 82, 0.15),
+        0 5px 12px rgba(0, 0, 0, 0.08);
       
-      transform: translateY(-5px);
-      transition: all 0.2s ease;
+      /* حركة ناعمة جداً */
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s ease;
+      transform: translateY(-5px); /* رفع الكارت للأعلى افتراضياً */
       z-index: 1;
     }
 
-    /* 🍫 خط صب الشوكولاتة النازل من العدم فوق الأقسام 🍫 */
-    .categories-grid::before {
-      content: "";
-      position: absolute;
-      top: -45px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 45px;
-      height: 60px;
-      background: linear-gradient(to bottom, #3d1e0f, #5a2a18);
-      border-radius: 0 0 25px 25px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-      z-index: 10;
-      animation: pourStream 1.2s ease-out forwards;
-    }
-
-    /* 🍫 بركة/سيول الشوكولاتة السايحة التي تستقر في المنتصف 🍫 */
-    .categories-grid::after {
-      content: "";
-      position: absolute;
-      top: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 140px;
-      height: 35px;
-      background: #4a2411;
-      border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-      z-index: 9;
-    }
-
-    @keyframes pourStream {
-      0% { height: 0; opacity: 0; }
-      100% { height: 60px; opacity: 1; }
-    }
-
+    /* 🔥 حركة الضغط: الكارت يتضغط لجوة عند اللمس 🔥 */
     .category-card:active {
-      transform: translateY(2px) scale(0.96);
-      box-shadow: 0 5px 12px rgba(214, 56, 82, 0.15);
+      transform: translateY(2px) scale(0.97);
+      box-shadow: 0 5px 10px rgba(214, 56, 82, 0.1);
     }
 
+    /* قسم العروض الشيك - بارز بشكل مختلف */
     .offers-card {
       border: 3px solid #ff5370 !important;
       background: #fff8f9 !important;
-      padding-top: 20px !important;
+      box-shadow: 0 15px 35px rgba(255, 83, 112, 0.2) !important;
     }
 
     .emoji { 
-      font-size: 3.5rem; 
-      margin-top: 5px;
+      font-size: 3.2rem; 
       margin-bottom: 8px; 
-      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
-      position: relative;
-      z-index: 3;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
     }
 
     .category-card h3 { 
       margin: 6px 0; 
       color: #222; 
-      font-size: 1.3rem; 
+      font-size: 1.25rem; 
       font-weight: 800;
-      position: relative; 
-      z-index: 3;
     }
 
     .btn-view {
       background: linear-gradient(135deg, #d63852 0%, #ff5370 100%);
       color: white;
-      padding: 9px 18px;
+      padding: 8px 16px;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: bold;
       margin-top: 10px;
-      box-shadow: 0 5px 15px rgba(255, 83, 112, 0.4);
-      position: relative; 
-      z-index: 3;
+      box-shadow: 0 4px 10px rgba(255, 83, 112, 0.3);
     }
 
+    /* زر الواتساب */
     .whatsapp-btn {
       display: flex; align-items: center; justify-content: center; gap: 10px;
       background: #25D366; color: white; text-decoration: none;
       font-size: 1.1rem; font-weight: bold; padding: 14px 25px;
-      border-radius: 30px; max-width: 300px; margin: 40px auto 25px auto;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45); transition: transform 0.2s;
+      border-radius: 30px; max-width: 300px; margin: 35px auto 20px auto;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35); transition: transform 0.2s;
     }
     .whatsapp-btn:active { transform: scale(0.97); }
   </style>
@@ -176,7 +136,7 @@
     
     <div class="categories-grid">
       <a href="offers.html" class="category-card offers-card">
-        <div class="emoji" style="margin-top:0;">🎁</div>
+        <div class="emoji">🎁</div>
         <h3>العروض والتوفير</h3>
         <span class="btn-view" style="background: #222;">شاهد العروض 🔥</span>
       </a>
@@ -204,18 +164,20 @@
   </div>
 
   <script>
-    const sweetsList = ['🍰', '🧁', '🍪', '🍩', '🍫', '🍓', '🍬', '✨', '🍯', '🍩', '🍓', '🍬'];
+    // كود توليد تساقط الحلويات
+    const sweetsList = ['🍰', '🧁', '🍪', '🍩', '🍫', '🍓', '🍬', '✨', '🍯'];
     const container = document.getElementById('sweets');
-    const sweetsCount = 40;
+    const sweetsCount = 30; // عدد الإيموجيات في الخلفية
 
     for (let i = 0; i < sweetsCount; i++) {
       const sweet = document.createElement('div');
       sweet.classList.add('sweet');
       sweet.innerText = sweetsList[Math.floor(Math.random() * sweetsList.length)];
       sweet.style.left = Math.random() * 100 + 'vw';
-      sweet.style.animationDuration = (Math.random() * 4 + 3) + 's';
+      // سرعات مختلفة
+      sweet.style.animationDuration = (Math.random() * 4 + 4) + 's';
       sweet.style.animationDelay = (Math.random() * 5) + 's';
-      sweet.style.fontSize = (Math.random() * 1 + 1.4) + 'rem';
+      sweet.style.fontSize = (Math.random() * 1 + 1.2) + 'rem';
       container.appendChild(sweet);
     }
   </script>
