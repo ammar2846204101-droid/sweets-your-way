@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+              <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -18,20 +18,21 @@
       position: relative;
     }
     
-    /* خلفية تساقط الحلويات */
+    /* خلفية تساقط الحلويات - مكثفة جداً */
     .sweets-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none; z-index: 0; overflow: hidden;
     }
     .sweet {
-      position: absolute; top: -50px; font-size: 1.8rem;
-      user-select: none; animation: fall linear infinite; opacity: 0.8;
+      position: absolute; top: -50px; font-size: 2.1rem;
+      user-select: none; animation: fall linear infinite; opacity: 0.9;
     }
     @keyframes fall {
       0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
       100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
     }
 
+    /* محتوى الصفحة الرئيسي */
     .content { position: relative; z-index: 1; }
     .header { margin-top: 20px; margin-bottom: 25px; }
     h1 { color: #d63852; font-size: 2.3rem; margin: 0 0 5px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.05); }
@@ -43,15 +44,18 @@
     }
     .section-title::before, .section-title::after { content: ""; height: 1px; width: 40px; background-color: #ccc; }
     
+    /* شبكة الأقسام مع مسافة في الأعلى لصب الشوكولاتة */
     .categories-grid {
       display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 500px; margin: 0 auto;
+      position: relative;
+      padding-top: 50px; /* مسافة لطبقة الشوكولاتة */
     }
 
-    /* 🔥 كروت بارزة جداً وتأثير 3D قوي 🔥 */
+    /* 🔥 كروت بارزة ومجسمة 🔥 */
     .category-card {
       background: #ffffff;
       border-radius: 24px;
-      padding: 30px 15px 20px 15px;
+      padding: 25px 15px 20px 15px;
       width: 45%;
       min-width: 140px;
       text-decoration: none;
@@ -60,57 +64,65 @@
       flex-direction: column;
       align-items: center;
       position: relative;
-      overflow: hidden; /* عشان يحكم الصوص جوه الكارت من فوق */
+      overflow: hidden;
       
-      /* سر البروز الفائق: ظلال متدرجة مجسمة وتحديد خفيف */
       border: 2px solid #ffffff;
       box-shadow: 
-        0 15px 30px rgba(214, 56, 82, 0.18),
-        0 5px 15px rgba(0, 0, 0, 0.08),
-        inset 0 2px 0 rgba(255, 255, 255, 0.9);
+        0 15px 35px rgba(214, 56, 82, 0.2),
+        0 5px 15px rgba(0, 0, 0, 0.1);
       
-      transform: translateY(-4px); /* رفع الكارت لبرة */
+      transform: translateY(-5px);
       transition: all 0.2s ease;
       z-index: 1;
     }
 
-    /* 🍫 تأثير صوص الشوكولاتة السايح بجد بقطرات انسيابية وتماوج ناعم 🍫 */
-    .category-card:not(.offers-card)::before {
+    /* 🍫 تأثير صب الشوكولاتة الواقعي من الأعلى (العدم) 🔥 */
+    .categories-grid::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 35px;
-      background: #4a2411; /* لون الشوكولاتة الغنية */
+      top: -120px; /* يبدأ من العدم فوق الشبكة */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px; /* عرض طبقة الصب */
+      height: 250px; /* طول طبقة الصب والاستقرار */
       
-      /* رسم قطرات انسيابية وسايحة حقيقية */
-      border-radius: 0 0 50% 50% / 0 0 100% 100%;
-      clip-path: polygon(
-        0% 0%, 100% 0%, 100% 65%, 
-        85% 95%, 70% 60%, 
-        50% 100%, 30% 55%, 
-        15% 90%, 0% 60%
-      );
+      /* استخدام الصورة الحقيقية للصب كخلفية (يجب أن تكون شفافة) */
+      /* ملاحظة: سنستخدم تدرجاً واقعياً جداً يحاكي شكل صورة الصب */
+      background: url('https://i.imgur.com/8QzXzG1.png') no-repeat center bottom; /* رابط صورة شفافة لصب شوكولاتة واقعي */
+      background-size: contain;
       
-      /* نقط فارمسيه ملونة سايحة جوه الصوص */
-      background-image: 
-        radial-gradient(#FFD700 40%, transparent 45%),
-        radial-gradient(#FF5370 40%, transparent 45%),
-        radial-gradient(#00E5FF 40%, transparent 45%),
-        radial-gradient(#7C4DFF 40%, transparent 45%);
-      background-size: 7px 7px, 9px 9px, 8px 8px, 6px 6px;
-      background-position: 8px 6px, 25px 12px, 45px 8px, 65px 14px;
-      
-      filter: drop-shadow(0 3px 2px rgba(0,0,0,0.3)); /* ظل للصوص يخليه بارز فوق الكارت */
-      z-index: 2;
+      z-index: 5; /* فوق الكروت */
+      pointer-events: none; /* لا تتداخل مع الضغط */
+      opacity: 0; /* يبدأ مختفياً */
+      animation: pourChocolate 1.8s ease-out forwards; /* حركة الصب */
     }
 
-    /* ضغطة زر ممتازة عند اللمس */
+    /* حركة الصب الواقعية */
+    @keyframes pourChocolate {
+      0% {
+        top: -150px; /* فوق الشبكة جداً */
+        opacity: 0;
+        transform: translateX(-50%) scaleY(1.3); /* صب أطول */
+      }
+      50% {
+        top: -40px; /* ينزل من فوق الشبكة */
+        opacity: 1;
+        transform: translateX(-50%) scaleY(1.1); /* يبدأ يستقر */
+      }
+      100% {
+        top: -50px; /* يستقر فوق الشبكة بانسيابية */
+        opacity: 1;
+        transform: translateX(-50%) scaleY(1); /* الشكل الطبيعي */
+      }
+    }
+
+    /* ضغطة زر عند اللمس */
     .category-card:active {
       transform: translateY(2px) scale(0.96);
       box-shadow: 0 5px 12px rgba(214, 56, 82, 0.15);
     }
 
-    /* قسم العروض الشيك مميز بدون صوص */
+    /* قسم العروض الشيك بدون تأثير الصب */
     .offers-card {
       border: 3px solid #ff5370 !important;
       background: #fff8f9 !important;
@@ -118,10 +130,10 @@
     }
 
     .emoji { 
-      font-size: 3.2rem; 
-      margin-top: 10px;
+      font-size: 3.5rem; 
+      margin-top: 5px;
       margin-bottom: 8px; 
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
       position: relative;
       z-index: 3;
     }
@@ -129,7 +141,7 @@
     .category-card h3 { 
       margin: 6px 0; 
       color: #222; 
-      font-size: 1.25rem; 
+      font-size: 1.3rem; 
       font-weight: 800;
       position: relative; 
       z-index: 3;
@@ -138,12 +150,12 @@
     .btn-view {
       background: linear-gradient(135deg, #d63852 0%, #ff5370 100%);
       color: white;
-      padding: 8px 16px;
+      padding: 9px 18px;
       border-radius: 20px;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: bold;
       margin-top: 10px;
-      box-shadow: 0 4px 12px rgba(255, 83, 112, 0.35);
+      box-shadow: 0 5px 15px rgba(255, 83, 112, 0.4);
       position: relative; 
       z-index: 3;
     }
@@ -152,8 +164,8 @@
       display: flex; align-items: center; justify-content: center; gap: 10px;
       background: #25D366; color: white; text-decoration: none;
       font-size: 1.1rem; font-weight: bold; padding: 14px 25px;
-      border-radius: 30px; max-width: 300px; margin: 35px auto 20px auto;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); transition: transform 0.2s;
+      border-radius: 30px; max-width: 300px; margin: 40px auto 25px auto;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45); transition: transform 0.2s;
     }
     .whatsapp-btn:active { transform: scale(0.97); }
   </style>
@@ -170,7 +182,7 @@
 
     <div class="section-title">اختر القسم</div>
     
-    <div class="categories-grid">
+    <div class="categories-grid" id="grid">
       <a href="offers.html" class="category-card offers-card">
         <div class="emoji" style="margin-top:0;">🎁</div>
         <h3>العروض والتوفير</h3>
@@ -200,18 +212,20 @@
   </div>
 
   <script>
-    const sweetsList = ['🍰', '🧁', '🍪', '🍩', '🍫', '🍓', '🍬', '✨'];
+    // كود توليد تساقط الحلويات - مكثف جداً (تمت زيادة العدد والأحجام)
+    const sweetsList = ['🍰', '🧁', '🍪', '🍩', '🍫', '🍓', '🍬', '✨', '🍯', '🍩', '🍓', '🍬'];
     const container = document.getElementById('sweets');
-    const sweetsCount = 18;
+    const sweetsCount = 40; // تمت مضاعفة العدد لجعلها مكثفة جداً
 
     for (let i = 0; i < sweetsCount; i++) {
       const sweet = document.createElement('div');
       sweet.classList.add('sweet');
       sweet.innerText = sweetsList[Math.floor(Math.random() * sweetsList.length)];
       sweet.style.left = Math.random() * 100 + 'vw';
-      sweet.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      // سرعات مختلفة وأحجام مختلفة
+      sweet.style.animationDuration = (Math.random() * 4 + 3) + 's';
       sweet.style.animationDelay = (Math.random() * 5) + 's';
-      sweet.style.fontSize = (Math.random() * 1 + 1.2) + 'rem';
+      sweet.style.fontSize = (Math.random() * 1 + 1.4) + 'rem';
       container.appendChild(sweet);
     }
   </script>
