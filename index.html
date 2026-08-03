@@ -94,4 +94,39 @@
   </div>
 
   <div id="main-content">
-    <h2>
+    <h2>أقسام المتجر</h2>
+    <div class="categories-grid">
+      
+      <a href="cakes.html" class="category-card">
+        <div class="emoji">🎂</div>
+        <h3>كعكات</h3>
+        <span class="btn-view">عرض المنتجات 👈</span>
+      </a>
+
+      <a href="cupcakes.html" class="category-card">
+        <div class="emoji">🧁</div>
+        <h3>كب كيك</h3>
+        <span class="btn-view">عرض المنتجات 👈</span>
+      </a>
+
+      <a href="cookies.html" class="category-card">
+        <div class="emoji">🍪</div>
+        <h3>كوكيز</h3>
+        <span class="btn-view">عرض المنتجات 👈</span>
+      </a>
+
+    </div>
+  </div>
+
+  <script>
+    const video = document.getElementById('promo-video');
+    const content = document.getElementById('main-content');
+
+    video.onended = function() {
+      content.style.display = 'block';
+    };
+  </script>
+
+</body>
+</html>
+      
