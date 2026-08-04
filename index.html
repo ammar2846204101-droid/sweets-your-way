@@ -9,8 +9,8 @@
     
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* 🔥 تم تغيير رابط الخلفية لرابط مباشر ومضمون 🔥 */
-      background: url('https://i.ibb.co/3ykZp5P/50773.png') no-repeat center center fixed;
+      /* 🔥 صورة الخلفية المرفوعة 🔥 */
+      background: #fce4ec url('file_00000000c26481f48ca54b81a') no-repeat center center fixed;
       background-size: cover;
       color: #333;
       margin: 0;
@@ -21,22 +21,22 @@
       position: relative;
     }
 
-    /* طبقة الشفافية الكاملة لإظهار تفاصيل الخلفية */
+    /* طبقة شفافة ناعمة لضمان وضوح الكروت والنصوص */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.22);
       z-index: 0;
       pointer-events: none;
     }
 
-    /* 🔥 شاشة Splsh Screen الافتتاحية 🔥 */
+    /* 🔥 شاشة Splash Screen الافتتاحية 🔥 */
     #splash-screen {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: #3b1408;
+      background: #4a1c0d;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -72,17 +72,18 @@
       visibility: hidden;
     }
     
-    /* تساقط الحلويات */
+    /* 🔥 تساقط 80 إيموجي بحجم صغير جداً وناعم 🔥 */
     .sweets-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none; z-index: 1; overflow: hidden;
     }
     .sweet {
-      position: absolute; top: -50px; font-size: 2rem;
-      user-select: none; animation: fall linear infinite; opacity: 0.85;
+      position: absolute; top: -40px;
+      user-select: none; animation: fall linear infinite;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     }
     @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.85; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
       100% { transform: translateY(105vh) rotate(360deg); opacity: 0.15; }
     }
 
@@ -103,10 +104,11 @@
       display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 500px; margin: 0 auto;
     }
 
-    /* 🔥 سر الشفافية والزجاج (Glassmorphism) للأقسام 🔥 */
+    /* الكروت الشفافة الزجاجية */
     .category-card {
-      background: rgba(255, 255, 255, 0.18); /* شفافية عالية جداً */
-      backdrop-filter: blur(8px); /* تأثير ضبابي زجاجي */
+      background: rgba(255, 255, 255, 0.32);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-radius: 22px;
       padding: 20px 15px;
       width: 45%;
@@ -116,8 +118,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 1.5px solid rgba(255, 255, 255, 0.25); /* حافة زجاجية خفيفة */
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.2);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25), 0 5px 10px rgba(0, 0, 0, 0.15);
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       transform: translateY(-5px);
     }
@@ -126,23 +128,19 @@
       transform: translateY(2px) scale(0.97);
     }
 
-    /* قسم العروض الشفاف */
     .offers-card {
       border: 2px solid #ff3355 !important;
-      background: rgba(255, 245, 247, 0.25) !important;
-      backdrop-filter: blur(10px) !important;
+      background: rgba(255, 245, 247, 0.5) !important;
     }
 
-    /* إيموجيات الأقسام المجسمة */
-    .emoji { font-size: 3.2rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25)); }
-    /* تم تغيير لون العنوان للأبيض ليتناسب مع الشفافية */
-    .category-card h3 { margin: 6px 0; color: #ffffff; font-size: 1.25rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
+    .emoji { font-size: 3.2rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
+    .category-card h3 { margin: 6px 0; color: #111111; font-size: 1.25rem; font-weight: 800; text-shadow: 0 1px 2px rgba(255,255,255,0.8); }
 
     .btn-view {
-      background: linear-gradient(135deg, #4a1507 0%, #8b001a 100%);
+      background: linear-gradient(135deg, #4a1c0d 0%, #8b001a 100%);
       color: white; padding: 8px 16px; border-radius: 20px;
       font-size: 0.85rem; font-weight: bold; margin-top: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
     }
 
     .whatsapp-btn {
@@ -150,7 +148,7 @@
       background: #25D366; color: white; text-decoration: none;
       font-size: 1.1rem; font-weight: bold; padding: 14px 25px;
       border-radius: 30px; max-width: 300px; margin: 35px auto 20px auto;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
     }
   </style>
 </head>
@@ -206,16 +204,19 @@
       }, 1800);
     });
 
-    const sweetsList = ['🍰', '🧁', '🍪', '🍩', '🍫', '🍓', '🍬', '✨'];
+    /* 🔥 توليد 80 إيموجي بحجم صغير وتنوع كبير 🔥 */
+    const sweetsList = ['🍰', '🧁', '🍪', '🍩', '🍫', '🍓', '🍬', '✨', '🎂', '🍭', '🍒'];
     const container = document.getElementById('sweets');
-    for (let i = 0; i < 25; i++) {
+    
+    for (let i = 0; i < 80; i++) {
       const sweet = document.createElement('div');
       sweet.classList.add('sweet');
       sweet.innerText = sweetsList[Math.floor(Math.random() * sweetsList.length)];
-      sweet.style.left = Math.random() * 100 + 'vw';
-      sweet.style.animationDuration = (Math.random() * 4 + 4) + 's';
-      sweet.style.animationDelay = (Math.random() * 5) + 's';
-      sweet.style.fontSize = (Math.random() * 1 + 1.2) + 'rem';
+      sweet.style.left = Math.random() * 98 + 'vw';
+      sweet.style.animationDuration = (Math.random() * 6 + 3) + 's';
+      sweet.style.animationDelay = (Math.random() * 7) + 's';
+      /* حجم الإيموجي صغير (بين 0.9rem و 1.3rem) */
+      sweet.style.fontSize = (Math.random() * 0.4 + 0.9) + 'rem';
       container.appendChild(sweet);
     }
   </script>
