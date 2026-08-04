@@ -6,9 +6,12 @@
   <title>حلويات على كيفك</title>
   <style>
     * { box-sizing: border-box; }
+    
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #fff5f5 0%, #ffe3e8 100%);
+      /* 🔥 إضافة الصورة الفخمة كخلفية للموقع 🔥 */
+      background: url('https://i.ibb.co/3ykZp5P/50773.png') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
       margin: 0;
       padding: 20px 15px;
@@ -18,12 +21,22 @@
       position: relative;
     }
 
+    /* طبقة إضاءة خفيفة تضمن وضوح النصوص فوق الخلفية */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255, 255, 255, 0.25); /* شفافية خفيفة جداً */
+      z-index: 0;
+      pointer-events: none;
+    }
+
     /* 🔥 شاشة Splash Screen الافتتاحية 🔥 */
     #splash-screen {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: #8b001a; /* اللون العنابي/الأحمر الفخم زي الفيديو */
+      background: #8b001a;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -32,7 +45,6 @@
       transition: opacity 0.8s ease, visibility 0.8s;
     }
 
-    /* اسم موقعك مع خطين ولمعان احترافي */
     .splash-title {
       color: #ffffff;
       font-size: 2.2rem;
@@ -60,36 +72,41 @@
       visibility: hidden;
     }
     
+    /* تساقط الحلويات */
     .sweets-container {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 0; overflow: hidden;
+      pointer-events: none; z-index: 1; overflow: hidden;
     }
     .sweet {
       position: absolute; top: -50px; font-size: 2rem;
-      user-select: none; animation: fall linear infinite; opacity: 0.9;
+      user-select: none; animation: fall linear infinite; opacity: 0.8;
     }
     @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
-      100% { transform: translateY(105vh) rotate(360deg); opacity: 0.2; }
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(105vh) rotate(360deg); opacity: 0.15; }
     }
 
-    .content { position: relative; z-index: 1; }
+    /* محتوى الصفحة الرئيسي */
+    .content { position: relative; z-index: 2; }
     .header { margin-top: 20px; margin-bottom: 25px; }
-    h1 { color: #d63852; font-size: 2.3rem; margin: 0 0 5px 0; }
-    .intro { color: #666; font-size: 1.1rem; margin: 0; }
+    h1 { color: #5a1827; font-size: 2.4rem; margin: 0 0 5px 0; font-weight: 900; text-shadow: 0 2px 4px rgba(255,255,255,0.8); }
+    .intro { color: #444; font-size: 1.1rem; margin: 0; font-weight: bold; }
     
     .section-title {
-      color: #888; font-size: 1rem; margin: 25px 0 20px 0;
+      color: #666; font-size: 1.05rem; margin: 25px 0 20px 0; font-weight: bold;
       display: flex; align-items: center; justify-content: center; gap: 10px;
     }
-    .section-title::before, .section-title::after { content: ""; height: 1px; width: 40px; background-color: #ccc; }
+    .section-title::before, .section-title::after { content: ""; height: 2px; width: 40px; background-color: #d63852; }
     
+    /* شبكة الأقسام */
     .categories-grid {
       display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 500px; margin: 0 auto;
     }
 
+    /* الأقسام المجسمة الشفافة بتناغم مع الخلفية */
     .category-card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(5px);
       border-radius: 22px;
       padding: 20px 15px;
       width: 45%;
@@ -100,10 +117,9 @@
       flex-direction: column;
       align-items: center;
       border: 2px solid #ffffff;
-      box-shadow: 0 15px 30px rgba(214, 56, 82, 0.15), 0 5px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 15px 30px rgba(90, 24, 39, 0.15), 0 5px 12px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       transform: translateY(-5px);
-      z-index: 1;
     }
 
     .category-card:active {
@@ -112,16 +128,17 @@
 
     .offers-card {
       border: 3px solid #ff5370 !important;
-      background: #fff8f9 !important;
+      background: rgba(255, 248, 249, 0.95) !important;
     }
 
-    .emoji { font-size: 3.2rem; margin-bottom: 8px; }
+    .emoji { font-size: 3.2rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); }
     .category-card h3 { margin: 6px 0; color: #222; font-size: 1.25rem; font-weight: 800; }
 
     .btn-view {
-      background: linear-gradient(135deg, #d63852 0%, #ff5370 100%);
+      background: linear-gradient(135deg, #8b001a 0%, #d63852 100%);
       color: white; padding: 8px 16px; border-radius: 20px;
       font-size: 0.85rem; font-weight: bold; margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(139, 0, 26, 0.3);
     }
 
     .whatsapp-btn {
@@ -129,7 +146,7 @@
       background: #25D366; color: white; text-decoration: none;
       font-size: 1.1rem; font-weight: bold; padding: 14px 25px;
       border-radius: 30px; max-width: 300px; margin: 35px auto 20px auto;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
     }
   </style>
 </head>
@@ -179,7 +196,6 @@
   </div>
 
   <script>
-    // اختفاء الشاشة الافتتاحية بعد ثانيتين
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('splash-screen').classList.add('fade-out');
@@ -188,7 +204,7 @@
 
     const sweetsList = ['🍰', '🧁', '🍪', '🍩', '🍫', '🍓', '🍬', '✨'];
     const container = document.getElementById('sweets');
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 25; i++) {
       const sweet = document.createElement('div');
       sweet.classList.add('sweet');
       sweet.innerText = sweetsList[Math.floor(Math.random() * sweetsList.length)];
