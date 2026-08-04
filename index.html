@@ -9,8 +9,8 @@
     
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      /* 🔥 خلفية الشوكولاتة الفخمة 🔥 */
-      background: url('[attachment_0](attachment)') no-repeat center center fixed;
+      /* 🔥 تم تغيير رابط الخلفية لرابط مباشر ومضمون 🔥 */
+      background: url('https://i.ibb.co/3ykZp5P/50773.png') no-repeat center center fixed;
       background-size: cover;
       color: #333;
       margin: 0;
@@ -21,22 +21,22 @@
       position: relative;
     }
 
-    /* طبقة شفافية خفيفة عشان الكلام والأقسام تفضل واضحة جداً */
+    /* طبقة الشفافية الكاملة لإظهار تفاصيل الخلفية */
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(0, 0, 0, 0.4);
       z-index: 0;
       pointer-events: none;
     }
 
-    /* 🔥 شاشة Splash Screen الافتتاحية 🔥 */
+    /* 🔥 شاشة Splsh Screen الافتتاحية 🔥 */
     #splash-screen {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: #3b1408; /* لون بني شوكولاتة غامق وفخم */
+      background: #3b1408;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -103,10 +103,10 @@
       display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; max-width: 500px; margin: 0 auto;
     }
 
-    /* الأقسام المجسمة الشفافة مدمجة مع الشوكولاتة */
+    /* 🔥 سر الشفافية والزجاج (Glassmorphism) للأقسام 🔥 */
     .category-card {
-      background: rgba(255, 255, 255, 0.93);
-      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.18); /* شفافية عالية جداً */
+      backdrop-filter: blur(8px); /* تأثير ضبابي زجاجي */
       border-radius: 22px;
       padding: 20px 15px;
       width: 45%;
@@ -116,8 +116,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 2px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35), 0 5px 12px rgba(0, 0, 0, 0.2);
+      border: 1.5px solid rgba(255, 255, 255, 0.25); /* حافة زجاجية خفيفة */
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 5px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       transform: translateY(-5px);
     }
@@ -126,13 +126,17 @@
       transform: translateY(2px) scale(0.97);
     }
 
+    /* قسم العروض الشفاف */
     .offers-card {
-      border: 3px solid #ff3355 !important;
-      background: rgba(255, 245, 247, 0.96) !important;
+      border: 2px solid #ff3355 !important;
+      background: rgba(255, 245, 247, 0.25) !important;
+      backdrop-filter: blur(10px) !important;
     }
 
-    .emoji { font-size: 3.2rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); }
-    .category-card h3 { margin: 6px 0; color: #222; font-size: 1.25rem; font-weight: 800; }
+    /* إيموجيات الأقسام المجسمة */
+    .emoji { font-size: 3.2rem; margin-bottom: 8px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25)); }
+    /* تم تغيير لون العنوان للأبيض ليتناسب مع الشفافية */
+    .category-card h3 { margin: 6px 0; color: #ffffff; font-size: 1.25rem; font-weight: 800; text-shadow: 0 2px 4px rgba(0,0,0,0.6); }
 
     .btn-view {
       background: linear-gradient(135deg, #4a1507 0%, #8b001a 100%);
