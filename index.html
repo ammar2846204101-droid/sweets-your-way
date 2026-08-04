@@ -39,23 +39,24 @@
       transition: background 0.3s;
     }
 
-    /* 🔥 1. شاشة Splash السينمائية 🔥 */
+    /* 🔥 1. شاشة Splash السينمائية (لون أوف وايت راقي) 🔥 */
     #splash-screen {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: #3b1408; display: flex; justify-content: center; align-items: center;
+      background: #fbf9f5; /* لون أوف وايت هادئ وفخم */
+      display: flex; justify-content: center; align-items: center;
       z-index: 9999; overflow: hidden; transition: opacity 1s ease, visibility 1s;
     }
     .corner { position: absolute; width: 80px; height: 80px; border: 4px solid transparent; opacity: 0; }
-    .corner-top-left { top: 20px; left: 20px; border-top-color: var(--gold); border-left-color: var(--gold); border-top-left-radius: 20px; animation: drawCorner 0.6s forwards 0.2s; }
-    .corner-top-right { top: 20px; right: 20px; border-top-color: var(--gold); border-right-color: var(--gold); border-top-right-radius: 20px; animation: drawCorner 0.6s forwards 0.8s; }
-    .corner-bottom-left { bottom: 20px; left: 20px; border-bottom-color: var(--gold); border-left-color: var(--gold); border-bottom-left-radius: 20px; animation: drawCorner 0.6s forwards 1.4s; }
-    .corner-bottom-right { bottom: 20px; right: 20px; border-bottom-color: var(--gold); border-right-color: var(--gold); border-bottom-right-radius: 20px; animation: drawCorner 0.6s forwards 2.0s; }
-    @keyframes drawCorner { 0% { opacity: 0; transform: scale(0.4); } 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 8px var(--gold)); } }
+    .corner-top-left { top: 20px; left: 20px; border-top-color: #d4af37; border-left-color: #d4af37; border-top-left-radius: 20px; animation: drawCorner 0.6s forwards 0.2s; }
+    .corner-top-right { top: 20px; right: 20px; border-top-color: #d4af37; border-right-color: #d4af37; border-top-right-radius: 20px; animation: drawCorner 0.6s forwards 0.8s; }
+    .corner-bottom-left { bottom: 20px; left: 20px; border-bottom-color: #d4af37; border-left-color: #d4af37; border-bottom-left-radius: 20px; animation: drawCorner 0.6s forwards 1.4s; }
+    .corner-bottom-right { bottom: 20px; right: 20px; border-bottom-color: #d4af37; border-right-color: #d4af37; border-bottom-right-radius: 20px; animation: drawCorner 0.6s forwards 2.0s; }
+    @keyframes drawCorner { 0% { opacity: 0; transform: scale(0.4); } 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 6px #d4af37); } }
 
     .splash-content { position: relative; width: 100%; height: 120px; display: flex; justify-content: center; align-items: center; }
     .text-slide {
       position: absolute; white-space: nowrap; font-size: 1.5rem; font-weight: 800;
-      background: linear-gradient(90deg, #fff 0%, var(--gold) 50%, #fff 100%);
+      background: linear-gradient(90deg, #5a3e2b 0%, #d4af37 50%, #5a3e2b 100%);
       background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       opacity: 0; transform: translateX(100vw);
     }
@@ -64,14 +65,14 @@
     @keyframes slidePass { 0% { opacity: 0; transform: translateX(100vw); } 30%, 70% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; transform: translateX(-100vw); } }
 
     .final-brand {
-      position: absolute; font-size: 2.3rem; font-weight: 900; color: #ffffff;
-      padding: 10px 25px; border-top: 2px dashed rgba(255, 215, 0, 0.7); border-bottom: 2px dashed rgba(255, 215, 0, 0.7);
-      background: linear-gradient(90deg, #fff 0%, var(--gold) 50%, #fff 100%);
+      position: absolute; font-size: 2.3rem; font-weight: 900; color: #4a2c11;
+      padding: 10px 25px; border-top: 2px dashed rgba(212, 175, 55, 0.8); border-bottom: 2px dashed rgba(212, 175, 55, 0.8);
+      background: linear-gradient(90deg, #4a2c11 0%, #d4af37 50%, #4a2c11 100%);
       background-size: 200% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       opacity: 0; transform: scale(0.7);
       animation: revealBrand 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 7.6s forwards, shine 1.8s infinite 8.4s;
     }
-    @keyframes revealBrand { 0% { opacity: 0; transform: scale(0.6); } 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 15px var(--gold)); } }
+    @keyframes revealBrand { 0% { opacity: 0; transform: scale(0.6); } 100% { opacity: 1; transform: scale(1); filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); } }
     @keyframes shine { 0% { background-position: -200%; } 100% { background-position: 200%; } }
     .fade-out { opacity: 0; visibility: hidden; }
 
@@ -92,7 +93,7 @@
     .search-input::placeholder { color: #eee; }
     .search-icon { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); font-size: 1.1rem; }
 
-    /* 🔥 4. زر الطلب بمواصفات خاصة 🎂✨ 🔥 */
+    /* 🔥 4. كارت الطلب بمواصفات خاصة 🎂✨ 🔥 */
     .custom-order-banner {
       max-width: 480px; margin: 0 auto 15px auto; background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 105, 180, 0.3));
       border: 2px dashed var(--gold); border-radius: 20px; padding: 12px 15px; display: flex; justify-content: space-between; align-items: center;
@@ -124,7 +125,9 @@
     .category-card h3 { margin: 5px 0; font-size: 1.1rem; text-shadow: 0 2px 4px #000; }
     
     .countdown-badge { background: #ff3355; font-size: 0.65rem; padding: 2px 6px; border-radius: 8px; margin-bottom: 5px; font-weight: bold; }
-    .quick-order-btn { background: #fff; color: #4a1c0d; border: none; padding: 6px 14px; border-radius: 15px; font-size: 0.75rem; font-weight: bold; margin-top: 8px; cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.2); }
+    .card-buttons { display: flex; gap: 6px; width: 100%; justify-content: center; margin-top: 8px; flex-wrap: wrap; }
+    .quick-order-btn { background: #fff; color: #4a1c0d; border: none; padding: 6px 10px; border-radius: 15px; font-size: 0.75rem; font-weight: bold; cursor: pointer; box-shadow: 0 3px 8px rgba(0,0,0,0.2); text-decoration: none; display: inline-block; }
+    .browse-btn { background: rgba(74, 28, 13, 0.85); color: #fff; border: 1px solid var(--gold); }
 
     /* 🔥 6. كارت التقييم التفاعلي المباشر للواتساب ⭐ 🔥 */
     .rating-card {
@@ -206,22 +209,35 @@
         <div class="emoji">🎁</div>
         <h3>العروض</h3>
         <span class="countdown-badge" id="timer">ينتهي: 02:10:05</span>
-        <button class="quick-order-btn">شاهد 👈</button>
+        <div class="card-buttons">
+          <span class="quick-order-btn browse-btn">تصفح 👈</span>
+        </div>
       </a>
+
       <div class="category-card">
         <div class="emoji">🎂</div>
         <h3>كعكات</h3>
-        <button class="quick-order-btn" onclick="openQuickOrder('كعكات')">طلب سريع 🛒</button>
+        <div class="card-buttons">
+          <a href="cakes.html" class="quick-order-btn browse-btn" style="width: 80%;">تصفح 👈</a>
+        </div>
       </div>
+
       <div class="category-card">
         <div class="emoji">🧁</div>
         <h3>كب كيك</h3>
-        <button class="quick-order-btn" onclick="openQuickOrder('كب كيك')">طلب سريع 🛒</button>
+        <div class="card-buttons">
+          <a href="cupcakes.html" class="quick-order-btn browse-btn">تصفح 👈</a>
+          <button class="quick-order-btn" onclick="openQuickOrder('كب كيك')">طلب 🛒</button>
+        </div>
       </div>
+
       <div class="category-card">
         <div class="emoji">🍪</div>
         <h3>كوكيز</h3>
-        <button class="quick-order-btn" onclick="openQuickOrder('كوكيز')">طلب سريع 🛒</button>
+        <div class="card-buttons">
+          <a href="cookies.html" class="quick-order-btn browse-btn">تصفح 👈</a>
+          <button class="quick-order-btn" onclick="openQuickOrder('كوكيز')">طلب 🛒</button>
+        </div>
       </div>
     </div>
 
